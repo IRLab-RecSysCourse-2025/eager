@@ -71,15 +71,15 @@ parall=50
 seq_len=20 # se_len-1 is the number of behaviours in all the windows
 min_seq_len=5
 test_user_num=0 # 100000# the number of user in test file
-raw_data_file='/home///data/recommend/{}/Toys_and_Games.json'.format(data_set_name)
-train_instances_file='/home///data/recommend/{}/train_instances'.format(data_set_name)
-test_instances_file='/home///data/recommend/{}/test_instances'.format(data_set_name)
-validation_instances_file='/home///data/recommend/{}/validation_instances'.format(data_set_name)
-item_num_node_num_file='/home///data/recommend/{}/item_node_num.txt'.format(data_set_name)
-train_item_vec_file='/home//2//recommend//data/{}/train_item_vec.npy'.format(data_set_name)
+raw_data_file='../../../{}/Toys_and_Games.json'.format(data_set_name)
+train_instances_file='../../../{}/train_instances'.format(data_set_name)
+test_instances_file='../../../{}/test_instances'.format(data_set_name)
+validation_instances_file='../../../{}/validation_instances'.format(data_set_name)
+item_num_node_num_file='../../../{}/item_node_num.txt'.format(data_set_name)
+train_item_vec_file='../../../{}/train_item_vec.npy'.format(data_set_name)
 #item_to_code_file='../../data/{}/item_to_code.npy'.format(data_set_name)
 #code_to_item_file='../../data/{}/code_to_item.npy'.format(data_set_name)
-DIN_Model_path='/home//2//recommend//data/{}/DIN_MODEL_29000.pt'.format(data_set_name) # 28000 beauty
+DIN_Model_path='../../../{}/DIN_MODEL_29000.pt'.format(data_set_name) # 28000 beauty
 tree_has_generated=False
 init_way=['embkm', 'embkm'] #'embkm' #'embkm'#'embrqvae' #'embkm'
 max_iters=100
@@ -93,8 +93,8 @@ code_to_item_file_list=[]
 
 for tree_id in range(tree_num):
 
-    item_to_code_file='/home//2//recommend//data/{}/tree/{}{}_t5_item_to_code_tree_id_{}_k{}.npy'.format(data_set_name,init_way,feature_ratio,tree_id,k)
-    code_to_item_file='/home//2//recommend//data/{}/tree/{}{}_t5_code_to_item_tree_id_{}_k{}.npy'.format(data_set_name,init_way,feature_ratio,tree_id,k)
+    item_to_code_file='../../../{}/tree/{}{}_t5_item_to_code_tree_id_{}_k{}.npy'.format(data_set_name,init_way,feature_ratio,tree_id,k)
+    code_to_item_file='../../../{}/tree/{}{}_t5_code_to_item_tree_id_{}_k{}.npy'.format(data_set_name,init_way,feature_ratio,tree_id,k)
     item_to_code_file_list.append(item_to_code_file)
     code_to_item_file_list.append(code_to_item_file)
 #assert tree_num==1
@@ -129,7 +129,7 @@ print('user num is {}, item is {}'.format(user_num,item_num))
 from lib.generate_training_batches import Train_instance
 train_instances=Train_instance(parall=parall)
 # training_batch_generator=train_instances.training_batches(train_instances_file,train_sample_seg_cnt,item_num,batchsize=training_batch_size)
-his_maxtix = '/home///data/recommend/{}/his_maxtix.pt'.format(data_set_name)
+his_maxtix = '../../{}/his_maxtix.pt'.format(data_set_name)
 labels = '/home///data/recommend/{}/labels.pt'.format(data_set_name)
 training_data,training_labels=train_instances.get_training_data(train_instances_file,train_sample_seg_cnt,item_num,his_maxtix, labels)
 #test_batch_generator=train_instances.test_batches(test_instances_file,item_num,batchsize=test_batch_size)
