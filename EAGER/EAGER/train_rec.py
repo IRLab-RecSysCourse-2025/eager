@@ -107,7 +107,7 @@ from lib import Trm4Rec
 import numpy as np
 if not have_processed_data:
     # raw_data_file = '/home///data/recommend/Amazon_Toys/Toys_and_Games.json'
-    raw_data_file = '/../../../All_Beauty_5.json'
+    raw_data_file = '../../../All_Beauty_5.json'
     behavior_dict, train_sample, test_sample,validation_sample,user_num,item_num,_ = _read(raw_data_file,test_user_num)  # 20 is the test users
     # write the training instance into different train_sample_seg_cnt files， avoid that a file is too large
     # stat record the click frequency of each item
