@@ -19,7 +19,7 @@ module load CUDA/12.6.0
 source activate seater
 
 # Go to the directory that contains the project, the runnable
-cd $HOME/eager/eager
+cd $HOME/eager/EAGER/EAGER
 # Books
 srun python train_rec.py
     
