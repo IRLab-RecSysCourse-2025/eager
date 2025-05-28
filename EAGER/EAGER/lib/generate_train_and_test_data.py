@@ -170,7 +170,7 @@ def _read(raw_file,test_record_num):
             timestamp = []
 
     #write train data set
-    '''
+    
     with open(prefix+'processed_'+train_data_file, 'w') as f:
         for user_id,item_id,cat_id,behav_id,timestamp in zip(train_sample["USERID"],train_sample["ITEMID"],
                                                              train_sample["CATID"],train_sample["BEHAV"],train_sample["TS"]):
@@ -188,7 +188,7 @@ def _read(raw_file,test_record_num):
                                                              validation_sample["CATID"],validation_sample["BEHAV"],validation_sample["TS"]):
 
             f.write(str(user_id)+','+str(item_id)+','+str(cat_id)+','+str(behav_id)+','+str(timestamp)+'\n')
-    '''
+    
     print("Read data done, {} train records, {} test records"", elapsed: {}".format(len(train_sample["USERID"]),
                                                                                     len(test_sample["USERID"]),
                                                                                     time.time() - start))
