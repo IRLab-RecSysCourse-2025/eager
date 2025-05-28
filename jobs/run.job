@@ -16,7 +16,7 @@ module load jax/0.3.14-foss-2022a-CUDA-11.7.0
 module load CUDA/12.6.0
 
 # Activate your environment
-source activate seater
+source activate eager
 
 # Go to the directory that contains the project, the runnable
 cd $HOME/eager/EAGER/EAGER
