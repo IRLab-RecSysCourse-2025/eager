@@ -57,7 +57,7 @@ args["warmup_updates"] = 2000 # original: 10000 for t5 / 1000 for bert
 args["warmup_init_lr"] = 1e-7
 
 
-have_processed_data=False
+have_processed_data=True
 tree_num=2
 enc_num_layers=1#layer of transformer
 dec_num_layers=[2,2]

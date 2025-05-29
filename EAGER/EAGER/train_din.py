@@ -7,7 +7,7 @@ data_set_name='MIND'#'gowalla' 'MIND' 'Amazon_All_Beauty'
 device='cuda'
 topk=10
 optimizer=lambda params: torch.optim.Adam(params, lr=1e-3, amsgrad=True)
-have_processed_data=False
+have_processed_data=True
 
 from lib.generate_train_and_test_data import _gen_train_sample, _read, _gen_test_sample
 
