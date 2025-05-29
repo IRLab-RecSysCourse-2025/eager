@@ -3,7 +3,7 @@ import sys
 
 sys.path.append('../..')
 #parametres
-data_set_name='MIND'#'gowalla' 'MIND' 'Amazon_All_Beauty'
+data_set_name='Amazon_Beauty'#'gowalla' 'MIND' 'Amazon_All_Beauty'
 device='cuda'
 topk=10
 optimizer=lambda params: torch.optim.Adam(params, lr=1e-3, amsgrad=True)
