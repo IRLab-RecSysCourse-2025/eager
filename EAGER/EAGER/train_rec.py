@@ -225,7 +225,7 @@ def MAP(result_list,gt_list,topk):
     return t/len(gt_list)
 
 
-DIN_Model=torch.load(DIN_Model_path,map_location=torch.device(device))
+DIN_Model=torch.load(DIN_Model_path,map_location=torch.device(device), weights_only=False)
 data1 = DIN_Model.item_embedding.embed.weight.data[:item_num,:].cpu()
 
 ########################### drawing ##########################
