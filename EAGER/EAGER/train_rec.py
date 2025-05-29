@@ -129,8 +129,8 @@ print('user num is {}, item is {}'.format(user_num,item_num))
 from lib.generate_training_batches import Train_instance
 train_instances=Train_instance(parall=parall)
 # training_batch_generator=train_instances.training_batches(train_instances_file,train_sample_seg_cnt,item_num,batchsize=training_batch_size)
-his_maxtix = '../../{}/his_maxtix.pt'.format(data_set_name)
-labels = '/home///data/recommend/{}/labels.pt'.format(data_set_name)
+his_maxtix = '../../../{}/his_maxtix.pt'.format(data_set_name)
+labels = '../../../{}/labels.pt'.format(data_set_name)
 training_data,training_labels=train_instances.get_training_data(train_instances_file,train_sample_seg_cnt,item_num,his_maxtix, labels)
 #test_batch_generator=train_instances.test_batches(test_instances_file,item_num,batchsize=test_batch_size)
 validation_batch_generator=train_instances.validation_batches(validation_instances_file,item_num,batchsize=test_batch_size)
@@ -258,7 +258,7 @@ data1 = DIN_Model.item_embedding.embed.weight.data[:item_num,:].cpu()
 ########################### drawing ##########################
 
 
-data2 = torch.from_numpy(np.load('/home///data/recommend/Amazon_Toys/t5_fullfeat_norm.np.npy')).cpu()
+data2 = torch.from_numpy(np.load('../../../{}/t5_fullfeat_norm.np.npy'.format(data_set_name))).cpu()
 data = [data1, data2]
 type = [0, 1] # 0 for id; 1 for modality
 feat_dim = [96, 768]

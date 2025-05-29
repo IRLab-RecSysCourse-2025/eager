@@ -86,8 +86,8 @@ class Train_instance:
                 his_maxtix=part_his
                 labels=part_labels
         assert len(his_maxtix)==len(labels)
-        torch.save(his_maxtix, '/home///data/recommend/Amazon_Beauty/his_maxtix.pt')
-        torch.save(labels, '/home///data/recommend/Amazon_Beauty/labels.pt')
+        torch.save(his_maxtix, '../../../Amazon_Beauty/his_maxtix.pt')
+        torch.save(labels, '../../../Amazon_Beauty/labels.pt')
         return his_maxtix,labels
 
 
