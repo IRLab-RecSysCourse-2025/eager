@@ -20,11 +20,11 @@ parall=10
 seq_len=20 # se_len-1 is the number of behaviours in all the windows
 min_seq_len=5
 test_user_num=0# the number of user in test file
-raw_data_file='/home///data/recommend/{}/{}.txt'.format(data_set_name,data_set_name)
-train_instances_file='/home///data/recommend/{}/train_instances'.format(data_set_name)
-test_instances_file='/home///data/recommend/{}/test_instances'.format(data_set_name)
-validation_instances_file='/home///data/recommend/{}/validation_instances'.format(data_set_name)
-item_num_node_num_file='/home///data/recommend/{}/item_node_num.txt'.format(data_set_name)
+raw_data_file='../../../All_Beauty_5.txt' # .format(data_set_name,data_set_name)
+train_instances_file='../../../{}/train_instances'.format(data_set_name)
+test_instances_file='../../../{}/test_instances'.format(data_set_name)
+validation_instances_file='../../../{}/validation_instances'.format(data_set_name)
+item_num_node_num_file='../../../{}/item_node_num.txt'.format(data_set_name)
 
 
 
@@ -40,7 +40,7 @@ from lib import generate_train_and_test_data
 
 import numpy as np
 if not have_processed_data:
-    raw_data_file = '/home//2//recommend/Sports_and_Outdoors_5.json'
+    raw_data_file = '../../../All_Beauty_5.txt'
     behavior_dict, train_sample, test_sample,validation_sample,user_num,item_num, user_ids= generate_train_and_test_data._read(raw_data_file,
                                                                              test_user_num)  # 20 is the test users
     # write the training instance into different train_sample_seg_cnt files， avoid that a file is too large
@@ -78,8 +78,8 @@ print(train_model.DINModel)
 from lib.generate_training_batches import Train_instance
 train_instances=Train_instance(parall=parall)
 
-his_maxtix = '/home///data/recommend/{}/his_maxtix.pt'.format(data_set_name)
-labels = '/home///data/recommend/{}/labels.pt'.format(data_set_name)
+his_maxtix = '../../../{}/his_maxtix.pt'.format(data_set_name)
+labels = '../../../{}/labels.pt'.format(data_set_name)
 training_data,training_labels=train_instances.get_training_data(train_instances_file,train_sample_seg_cnt,item_num, his_maxtix, labels)
 item_set = set()
 # for i in range(len(training_data)):
@@ -322,7 +322,7 @@ for (batch_x, batch_y) in train_instances.generate_training_records(training_dat
         # #######
 
     if train_model.batch_num % 1000 == 0:
-        DIN_Model_path = '/home//2//recommend//data/{}/DIN_MODEL_{}.pt'.format(
+        DIN_Model_path = '../../../{}/DIN_MODEL_{}.pt'.format(
             data_set_name, (train_model.batch_num))
         torch.save(train_model.DINModel, DIN_Model_path)
         print('saved')
@@ -434,11 +434,11 @@ total_f_measure_history.append(f_measure(resutl_history,gt_history,topk))
 # total_novelty_history.append(novelty(resutl_history,test_batch.tolist(),topk))
 train_model.DINModel.train()
 
-DIN_Model_path='/home//2//recommend//data/{}/DIN_MODEL.pt'.format(data_set_name)
+DIN_Model_path='../../../{}/DIN_MODEL.pt'.format(data_set_name)
 torch.save(train_model.DINModel,DIN_Model_path)
 print(total_precision_history[-1],total_recall_history[-1],total_f_measure_history[-1],total_novelty_history[-1])
 
-sorted_test_users_path='/home//2//recommend//data/{}/sorted_test_users.txt'.format(data_set_name)
+sorted_test_users_path='../../../{}/sorted_test_users.txt'.format(data_set_name)
 np.savetxt(sorted_test_users_path,preference_matrix.argsort(dim=-1).numpy(),delimiter=',',fmt='%d')
 
 def presision(result_list,gt_list,top_k):
@@ -492,7 +492,7 @@ from lib.generate_training_batches import Train_instance
 train_instances=Train_instance(parall=parall)
 test_instances=train_instances.read_test_instances_file(test_instances_file,item_num)
 
-sorted_test_users_path='/home//2//recommend//data/{}/sorted_test_users.txt'.format(data_set_name)
+sorted_test_users_path='../../../{}/sorted_test_users.txt'.format(data_set_name)
 gt_history=train_instances.test_labels
 preference_matrix=np.loadtxt(sorted_test_users_path,delimiter=',')
 #%%
