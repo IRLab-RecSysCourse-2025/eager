@@ -31,9 +31,9 @@ item_num_node_num_file='../../../{}/item_node_num.txt'.format(data_set_name)
 test_batch_size=100
 
 batch_number=800000#
-if device!='cpu':
-    torch.cuda.set_device(device)
-    device='cuda'
+# if device!='cpu':
+#     torch.cuda.set_device(device)
+#     device='cuda'
 
 from lib import generate_train_and_test_data
 
